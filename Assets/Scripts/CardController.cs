@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using System;
 
 public class Card {
@@ -11,6 +12,9 @@ public class Card {
         return name + " " + set + " " + id;
     }
 
+    public static double getWidthMultiplier() {
+        return 0.71428571428;
+    }
 }
 
 public class PCard : Card {
@@ -23,6 +27,12 @@ public class PCard : Card {
         this.id = id;
         this.actions = actions;
 
+    }
+
+    public void Draw(string drawto) {
+        if (drawto == "PlayerBench") {
+            Debug.Log(GameObject.Find("PlayerBench") == null);
+        }
     }
 }
 

@@ -1,0 +1,42 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="Card" src="project://database/Assets/UXML/PCard.uxml?fileID=9197481963319205126&amp;guid=e1acdaf4c259c5245af58a78bf5eb8f6&amp;type=3#PCard" />
+    <ui:Template name="PCard" src="project://database/Assets/UXML/PCard.uxml?fileID=9197481963319205126&amp;guid=e1acdaf4c259c5245af58a78bf5eb8f6&amp;type=3#PCard" />
+    <ui:VisualElement name="Root" style="height: 1080px; justify-content: flex-end;">
+        <ui:VisualElement name="EnemySide" style="height: 470px; position: relative; flex-direction: column;">
+            <ui:VisualElement name="EnemyHand" style="position: relative; height: 26px; justify-content: center; align-items: flex-start; flex-direction: row; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; left: auto; width: auto; top: auto; rotate: 180deg; bottom: auto; margin-bottom: 0; margin-top: 0;">
+                <ui:Instance template="Card" name="Card" style="width: 142.8571px; height: 200px;" />
+                <ui:Instance template="Card" name="PCard" style="width: 142.8571px; height: 200px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 464px; align-items: center; justify-content: flex-end;">
+                <ui:VisualElement name="EnemyBench" style="height: 226px; margin-bottom: 0; padding-bottom: 0; width: 40%; margin-top: 0; flex-direction: row; justify-content: flex-start; align-items: center; margin-left: 0; padding-left: 27px; padding-right: 26px; background-image: url(&apos;project://database/Assets/Sprites/white_pixel.png?fileID=2800000&amp;guid=822e20723db115045be9079273ce7aac&amp;type=3#white_pixel&apos;); -unity-background-image-tint-color: rgb(43, 37, 37); rotate: 180deg;">
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="EnemyActive" style="width: 142.8571px; height: 200px; margin-top: 0;">
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; padding-top: 0; margin-top: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="PlayerSide" style="height: 640px; position: relative; justify-content: flex-end;">
+            <ui:VisualElement style="height: 440px; align-items: center; justify-content: flex-end;">
+                <ui:VisualElement name="PlayerActive" style="width: 142.8571px; height: 200px; margin-top: 0;">
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="PlayerBench" style="height: 226px; margin-bottom: 0; padding-bottom: 10px; width: 40%; margin-top: 0; flex-direction: row; justify-content: flex-start; align-items: center; margin-left: 0; padding-left: 27px; padding-right: 26px; background-image: url(&apos;project://database/Assets/Sprites/white_pixel.png?fileID=2800000&amp;guid=822e20723db115045be9079273ce7aac&amp;type=3#white_pixel&apos;); -unity-background-image-tint-color: rgb(43, 37, 37);">
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Instance template="PCard" name="PCard" style="width: 142.8571px; height: 200px; align-items: stretch; justify-content: flex-start;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="PlayerHand" style="position: relative; height: 170px; justify-content: center; align-items: flex-start; flex-direction: row; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; left: auto; width: auto; top: auto;">
+                <ui:Instance template="Card" name="Card" style="width: 142.8571px; height: 200px;" />
+                <ui:Instance template="Card" name="PCard" style="width: 142.8571px; height: 200px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
