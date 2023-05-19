@@ -43,6 +43,7 @@ public class CardController : MonoBehaviour {
     void Start() {
         PCard pcard = new PCard("Fred", "SUS", 1, null);
         Debug.Log(pcard.getFullName());
+        
     }
 
     // Update is called once per frame
