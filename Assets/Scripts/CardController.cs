@@ -8,6 +8,7 @@ public class Card {
     protected string name;
     protected string set;
     protected int id;
+    public List<string> tags;
     public string getFullName() {
         return name + " " + set + " " + id;
     }
@@ -31,7 +32,8 @@ public class PCard : Card {
 
     public void Draw(string drawto) {
         if (drawto == "PlayerBench") {
-            Debug.Log(GameObject.Find("PlayerBench") == null);
+            GameObject board = GameObject.Find("Board");
+
         }
     }
 }
