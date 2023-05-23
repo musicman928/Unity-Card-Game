@@ -11,7 +11,7 @@ public class Card {
     protected string name;
     protected string set;
     protected int id;
-    public List<string> tags;
+    public List<string> Tags;
     public string getFullName() {
         return name + " " + set + " " + id;
     }
@@ -31,13 +31,11 @@ public class PCard : Card {
         this.id = id;
         this.actions = actions;
 
+
     }
 
-    public void Draw(string drawto) {
-        if (drawto == "PlayerBench") {
-            GameObject board = GameObject.Find("Board");
-
-        }
+    public void Draw(GameObject drawTo) {
+        
     }
 }
 
@@ -52,6 +50,8 @@ public class PCardController : MonoBehaviour {
     public TextMeshProUGUI retreatText;
     public Image weaknessImage;
     public Image resistanceImage;
+
+    [SerializeField] [Range(0,50)] float maximumMovementSpeed;
     
     void Start() {
         root = transform.Find("Root").gameObject;
