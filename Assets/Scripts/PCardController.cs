@@ -23,10 +23,14 @@ public class Card {
 
 public class PCard : Card {
     
+    int maxhp;
+    int hp;
     List<Action> actions;
-    public PCard(string name, string set, int id, List<Action> actions) {
+    public PCard(string name, int hp, string set, int id, List<Action> actions) {
 
         this.name = name;
+        maxhp = hp;
+        this.hp = hp;
         this.set = set;
         this.id = id;
         this.actions = actions;

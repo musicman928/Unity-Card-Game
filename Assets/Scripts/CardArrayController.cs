@@ -21,6 +21,10 @@ public class CardArrayController : MonoBehaviour {
         drawChildren();
     }
 
+    public void RemoveChild(int index) {
+        
+    }
+
     private void drawChildren() {
         transform.DetachChildren();
         foreach (GameObject i in array) {
