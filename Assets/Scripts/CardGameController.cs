@@ -13,11 +13,24 @@ public class CardGameController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-       Instantiate(PCardPrefab, transform);
+       Instantiate(PCardPrefab, PlayerHand.transform);
     }
 
     // Update is called once per frame
     void Update() {
         
+    }
+
+    public GameObject[] GetChildrenWithTag(string tag, GameObject parent) {
+        List<GameObject> output = new List<GameObject>();
+        GameObject[] source = Property.GetAll(tag);
+
+        foreach (GameObject element in source) {
+            if (element.transform.IsChildOf(parent.transform)) {
+                output.Add(element);
+            }
+        }
+
+        return output.ToArray();
     }
 }

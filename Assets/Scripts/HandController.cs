@@ -14,7 +14,7 @@ public class HandController : MonoBehaviour
     }
 
     void Start() {
-        Instantiate(PrefabToInstantiate, transform);
+        //Instantiate(PrefabToInstantiate, transform);
         
     }
 
