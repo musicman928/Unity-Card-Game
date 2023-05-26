@@ -27,9 +27,9 @@ public class CardArrayController : MonoBehaviour {
 
     private void drawChildren() {
         transform.DetachChildren();
-        foreach (GameObject i in array) {
-
-            i.transform.SetParent(transform);
+        for (int i = 0; i < array.Length; i++) {
+            Instantiate(cardContainer, transform);
+            array[i].transform.SetParent(transform.GetChild(i));
         }        
     }
 }

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckController : MonoBehaviour
-{
-    // Start is called before the first frame update
+public class DeckController : MonoBehaviour {
+    
     void Start()
     {
         

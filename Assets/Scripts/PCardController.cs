@@ -7,26 +7,14 @@ using TMPro;
 using System;
 
 
-public class Card {
-    protected string name;
-    protected string set;
-    protected int id;
-    public List<string> Tags;
-    public string getFullName() {
-        return name + " " + set + " " + id;
-    }
 
-    public static double getWidthMultiplier() {
-        return 0.71428571428;
-    }
-}
 
 public class PCard : Card {
     
     int maxhp;
     int hp;
     List<Action> actions;
-    public PCard(string name, int hp, string set, int id, List<Action> actions) {
+    public PCard(string name, int hp, string set, int id, List<string> properties, List<Action> actions) {
 
         this.name = name;
         maxhp = hp;
@@ -57,6 +45,13 @@ public class PCardController : MonoBehaviour {
 
     [SerializeField] [Range(0,50)] float maximumMovementSpeed;
     
+    public void SetCard(Card card) {
+        this.card = card;
+    }
+
+    public Card GetCard() {
+        return card;
+    }
     void Start() {
         root = transform.Find("Root").gameObject;
         nameText = root.transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();

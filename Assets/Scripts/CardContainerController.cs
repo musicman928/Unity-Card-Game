@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardContainerController : MonoBehaviour {
+    
+    public Card ContainedCard;
+    [SerializeField] GameObject ContainedObject;
+    [SerializeField] GameObject pCardPrefab;
 
-    public Card containedCard;
-
-    void Start() {
-        
+    public void SetObject(GameObject gameObject) {
+        ContainedObject = gameObject;
+        transform.DetachChildren();
+        ContainedObject.transform.SetParent(transform);
+        Debug.Log(ContainedObject.transform.GetComponent<RectTransform>().sizeDelta.y);
     }
 
-    void Update() {
-        
+    public void Hidden(bool hidden) {
+
     }
+
+    public GameObject GetObject() {
+        return ContainedObject;
+    }
+
+
+    
 }
