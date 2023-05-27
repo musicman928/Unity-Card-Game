@@ -26,7 +26,7 @@ public class PCard : Card {
 
     }
 
-    public void Draw(GameObject drawTo) {
+    public override void Draw(GameObject drawTo) {
         
     }
 }

@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System;
 
-public class Card {
-    protected string name;
+public abstract class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     protected string set;
     protected int id;
     public List<string> Tags;
@@ -18,5 +17,22 @@ public class Card {
 
     public static double getWidthMultiplier() {
         return 0.71428571428;
+    }
+
+    public abstract void Draw(GameObject drawTo);
+
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("Begin Drag");
+    }
+
+    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("End Drag");
+    }
+
+    void IDragHandler.OnDrag(PointerEventData eventData)
+    {
+        transform.position = Input.mousePosition;
     }
 }
