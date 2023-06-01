@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardArrayController : MonoBehaviour {
-    public CardGameController controller;
+    CardGameController controller;
     public int size = 5;
 
     public float ChildScale = 0.656f;
@@ -11,8 +11,8 @@ public class CardArrayController : MonoBehaviour {
     private GameObject[] array;
     [SerializeField] private GameObject cardContainer;
     void Start() {
+        controller = CardGameController.Instance;
         array = new GameObject[size];
-        Debug.Log("Controller: " + (controller == null));
         Instantiate(controller.CardContainerPrefab, transform);
         GameObject ocard = controller.PlayerBench.transform.GetChild(0).gameObject;
     }

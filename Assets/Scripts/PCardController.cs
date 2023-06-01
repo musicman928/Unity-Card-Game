@@ -6,35 +6,8 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System;
 
-
-
-
-public class PCard : Card {
-    
-    int maxhp;
-    int hp;
-    List<Action> actions;
-    public PCard(string name, int hp, string set, int id, List<string> properties, List<Action> actions) {
-
-        this.name = name;
-        maxhp = hp;
-        this.hp = hp;
-        this.set = set;
-        this.id = id;
-        this.actions = actions;
-
-
-    }
-
-    public override void Draw(GameObject drawTo) {
-        
-    }
-}
-
-
-
 public class PCardController : MonoBehaviour {
-    public Card card;
+    public PCard card;
     public GameObject root;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI stageText;
@@ -45,13 +18,15 @@ public class PCardController : MonoBehaviour {
 
     [SerializeField] [Range(0,50)] float maximumMovementSpeed;
     
-    public void SetCard(Card card) {
+    public void SetCard(PCard card) {
         this.card = card;
+        DrawCard();
     }
 
-    public Card GetCard() {
+    public PCard GetCard() {
         return card;
     }
+
     void Start() {
         root = transform.Find("Root").gameObject;
         nameText = root.transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
@@ -63,7 +38,20 @@ public class PCardController : MonoBehaviour {
 
         
         
-        
+        if (card != null) {
+            DrawCard();
+        }
+    }
+
+    void DrawCard() {
+        Debug.Log(card == null);
+        nameText.text = Utility.Format(card.name);
+        stageText.text = Utility.Format(card.stage.ToString());
+        color.sprite = Resources.Load<Sprite>("Sprites/" + card.type.ToString().ToLower() + "_energy.png");
+        retreatText.text = "Retreat: " + card.retreatCost;
+        weaknessImage.sprite = Resources.Load<Sprite>("Sprites/" + card.weakness.ToString().ToLower() + "_energy.png");
+        resistanceImage.sprite = Resources.Load<Sprite>("Sprites/" + card.resistance.ToString().ToLower() + "_energy.png");
+
     }
 
     

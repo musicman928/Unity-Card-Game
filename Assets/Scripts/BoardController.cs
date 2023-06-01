@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BoardController : MonoBehaviour {
 
+    CardGameController controller;
+
     void Start() {
-        
+        controller = CardGameController.Instance;
     }
 
     // Update is called once per frame

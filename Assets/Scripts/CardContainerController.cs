@@ -8,11 +8,30 @@ public class CardContainerController : MonoBehaviour {
     [SerializeField] GameObject ContainedObject;
     [SerializeField] GameObject pCardPrefab;
 
-    public void SetObject(GameObject gameObject) {
-        ContainedObject = gameObject;
+    public void SetObject(GameObject contained) {
+        ContainedObject = contained;
         transform.DetachChildren();
         ContainedObject.transform.SetParent(transform);
-        Debug.Log(ContainedObject.transform.GetComponent<RectTransform>().sizeDelta.y);
+        
+    }
+
+    public void InstantiatePrefab(GameObject prefab) {
+        transform.DetachChildren();
+        Instantiate(prefab, transform);
+        ContainedObject = transform.GetChild(0).gameObject;
+        ContainedObject.transform.SetParent(transform);
+        
+    }
+
+    public void RemoveObject() {
+        ContainedObject = null;
+        transform.DetachChildren();
+    }
+
+    void OnTransformChildrenChanged() {
+        foreach(Transform child in transform) {
+            child.transform.localPosition = new Vector3(0,0,0);
+        }
     }
 
     public void Hidden(bool hidden) {

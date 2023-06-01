@@ -3,15 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeckController : MonoBehaviour {
+
+    Deck<Card> deck = new Deck<Card>();
+
+    void Awake() {
+        
+    }
     
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
+        
+    }
+
+    void OnModified() {
+        
+    }
+
+    public void DrawToHand() {
         
     }
 }

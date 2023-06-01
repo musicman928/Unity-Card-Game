@@ -6,15 +6,18 @@ public static class Property {
     static Dictionary<string, List<GameObject>> dictionary = new Dictionary<string, List<GameObject>>();
 
     public static void Add(string key, GameObject member) {
-        if (dictionary.ContainsKey(key)) {
-            List<GameObject> value;
-            dictionary.TryGetValue(key, out value);
-            value.Add(member);
+        if (member == null) {
+            Debug.Log("member is null, key is " + key);
         } else {
-            List<GameObject> value;
-            dictionary.TryGetValue(key, out value);
-            value = new List<GameObject>();
-            value.Add(member);
+            if (dictionary.ContainsKey(key)) {
+                List<GameObject> value;
+                dictionary.TryGetValue(key, out value);
+                value.Add(member);
+            } else {
+                List<GameObject> value = new List<GameObject>();
+                value.Add(member);
+                dictionary.Add(key, value);
+            }
         }
     }
 
@@ -29,7 +32,7 @@ public static class Property {
     }
 
     public static GameObject[] GetAll(string key) {
-        List<GameObject> value;
+        List<GameObject> value = new List<GameObject>();
         dictionary.TryGetValue(key, out value);
         return value.ToArray();
     }
