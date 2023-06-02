@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEditor;
 
 public class CardGameController : MonoBehaviour {
-    public static CardGameController Instance;
     public GameObject PCardPrefab;
     public GameObject CardContainerPrefab;
     public GameObject PlayerBench;
@@ -12,13 +11,6 @@ public class CardGameController : MonoBehaviour {
 
     Card[] PlayerBenchCards = new Card[5];
     List<Card> PlayerHandCards = new List<Card>();
-
-    void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        }
-        
-    }
 
     void Start() {
         Instantiate(CardContainerPrefab, PlayerBench.transform);

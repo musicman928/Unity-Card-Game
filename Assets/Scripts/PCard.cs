@@ -18,19 +18,36 @@ public class PCard : Card {
     public CardColors weakness;
     public CardColors resistance;
 
-    public PCard(string name, int hp, string set, int id, List<string> properties, List<Action> actions) {
-
+    public PCard(string name, int hp, string set, int id, CardColors type, PCardStages stage, CardColors weakness, CardColors resistance, List<string> Tags, List<Action> actions) {
+        Debug.Log("Constructing " + name + " " + set + " " + id);
         this.name = name;
         maxhp = hp;
         this.hp = hp;
         this.set = set;
         this.id = id;
+        this.type = type;
+        this.stage = stage;
+        this.weakness = weakness;
+        this.resistance = resistance;
+
+        List<string> defaultTags = new List<string>();
+        defaultTags.Add("card");
+        defaultTags.Add("pcard");
+        defaultTags.Add(Utility.FormatAllLower(this.type.ToString()));
+        defaultTags.Add(Utility.FormatAllLower(this.stage.ToString()));
+        defaultTags.Add(Utility.FormatAllLower("weak: " + this.weakness.ToString()));
+        defaultTags.Add(Utility.FormatAllLower("res: " + this.resistance.ToString()));
+        this.Tags.AddRange(defaultTags);
+        this.Tags.AddRange(Tags);
+
         this.actions = actions;
-
-
     }
 
     public override GameObject GetPrefab() {
         return Resources.Load<GameObject>("Prefabs/PCard.prefab");
+    }
+
+    public PCard Clone() {
+        return new PCard(name, hp, set, id, type, stage, weakness, resistance, Tags, actions);
     }
 }

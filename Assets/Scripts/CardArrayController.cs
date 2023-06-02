@@ -11,7 +11,7 @@ public class CardArrayController : MonoBehaviour {
     private GameObject[] array;
     [SerializeField] private GameObject cardContainer;
     void Start() {
-        controller = CardGameController.Instance;
+        controller = transform.root.GetComponent<CardGameController>();
         array = new GameObject[size];
         Instantiate(controller.CardContainerPrefab, transform);
         GameObject ocard = controller.PlayerBench.transform.GetChild(0).gameObject;

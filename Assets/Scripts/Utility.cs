@@ -18,4 +18,17 @@ public class Utility {
         
         return input;
     }
+
+    public static string FormatAllLower(string input) {
+        input = input.ToLower();
+
+        char[] array = input.ToCharArray();
+        for (int i = 0; i < array.Length; i++) {
+            if (array[i] == '_') {
+                array[i] = ' ';
+            }
+        }
+        
+        return input;
+    }
 }

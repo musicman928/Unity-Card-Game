@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System;
 
-public abstract class Card : ScriptableObject {
+public abstract class Card : ScriptableObject{
     public new string name;
     public string set;
     public int id;
-    public List<string> Tags;
+    public List<string> Tags = new List<string>();
 
     override public string ToString() {
         return name + " " + set + " " + id;

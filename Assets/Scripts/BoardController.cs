@@ -7,7 +7,7 @@ public class BoardController : MonoBehaviour {
     CardGameController controller;
 
     void Start() {
-        controller = CardGameController.Instance;
+        controller = transform.root.GetComponent<CardGameController>();
     }
 
     // Update is called once per frame

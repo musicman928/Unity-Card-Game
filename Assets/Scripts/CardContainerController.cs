@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class CardContainerController : MonoBehaviour {
+public class CardContainerController : MonoBehaviour, IDropHandler {
     
     public Card ContainedCard;
     [SerializeField] GameObject ContainedObject;
     [SerializeField] GameObject pCardPrefab;
+    List<string> applicableTags = new List<string>();
 
     public void SetObject(GameObject contained) {
         ContainedObject = contained;
@@ -42,6 +44,11 @@ public class CardContainerController : MonoBehaviour {
         return ContainedObject;
     }
 
+    public void OnDrop(PointerEventData eventData) {
+        GameObject dropped = eventData.pointerDrag; 
+        Draggable dragged = dropped.GetComponent<Draggable>();
+        dragged.parentAfterDrag = transform;
+    }
 
     
 }

@@ -16,10 +16,7 @@ MonoBehaviour:
   set: SVI
   id: 0
   Tags:
-  - basic
   - rulebox
-  - yellow
-  - pcard
   - ex
   maxhp: 220
   hp: 220
