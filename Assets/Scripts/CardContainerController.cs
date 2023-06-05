@@ -8,7 +8,6 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
     public Card ContainedCard;
     [SerializeField] GameObject ContainedObject;
     [SerializeField] GameObject pCardPrefab;
-    List<string> applicableTags = new List<string>();
 
     public void SetObject(GameObject contained) {
         ContainedObject = contained;
@@ -24,6 +23,17 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
         ContainedObject.transform.SetParent(transform);
         
     }
+
+    public void InstantiateCard(Card card) {
+        ContainedCard = card;
+        transform.DetachChildren();
+        Instantiate(card.GetPrefab(), transform);
+        ContainedObject = transform.GetChild(0).gameObject;
+        
+        ContainedObject.transform.SetParent(transform);
+        
+    }
+
 
     public void RemoveObject() {
         ContainedObject = null;
@@ -48,6 +58,7 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
         GameObject dropped = eventData.pointerDrag; 
         Draggable dragged = dropped.GetComponent<Draggable>();
         dragged.parentAfterDrag = transform;
+        
     }
 
     

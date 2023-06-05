@@ -13,11 +13,7 @@ public class CardGameController : MonoBehaviour {
     List<Card> PlayerHandCards = new List<Card>();
 
     void Start() {
-        Instantiate(CardContainerPrefab, PlayerBench.transform);
-        GameObject ocard = PlayerBench.transform.GetChild(0).gameObject;
-        Instantiate(PCardPrefab, ocard.transform);
-        ocard.GetComponent<CardContainerController>().InstantiatePrefab(PCardPrefab);
-
+        
         //PCardController cardcontroller = ocard.GetComponent<CardContainerController>().GetComponentInChildren<PCardController>();
         //PCard cardinstance = (PCard)AssetDatabase.LoadAssetAtPath("Assets/Resources/Cards/PCards/Miraidon_ex.asset", typeof(PCard));
         //cardcontroller.SetCard(cardinstance);

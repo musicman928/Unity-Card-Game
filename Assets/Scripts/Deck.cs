@@ -35,6 +35,14 @@ public class Deck<T> {
     public void Print() {
         Debug.Log(string.Join(",", stack.GetList().ToArray()));
     }
+
+    public void AddToTop(T item) {
+        stack.Push(item);
+    }
+
+    public int GetLength() {
+        return stack.GetList().ToArray().Length;
+    }
     
 
 }

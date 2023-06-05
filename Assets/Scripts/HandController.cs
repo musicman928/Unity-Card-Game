@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandController : MonoBehaviour
-{
-    [SerializeField] private GameObject PrefabToInstantiate;
-    
-    public static HandController Instance;
+public class HandController : MonoBehaviour {
+    CardGameController controller;
     RectTransform rectTransform;
+    Vector3 rootPosition;
 
-    void Awake(){
-        Instance = this;
+    void Awake() {
+        controller = transform.root.GetComponent<CardGameController>();
     }
 
     void Start() {
         //Instantiate(PrefabToInstantiate, transform);
-        
+        rootPosition = transform.position;
     }
 
     
@@ -24,14 +22,15 @@ public class HandController : MonoBehaviour
     }
 
     void OnMouseEnter(){
-        transform.localPosition = new Vector3(0, -405, 0);
+        transform.localPosition = new Vector3(rootPosition.x, rootPosition.y + 107, rootPosition.z);
     }
 
     void OnMouseExit() {
-        transform.localPosition = new Vector3(0, -512, 0);
+        transform.localPosition = rootPosition;
     }
 
-    // public void AddCard(Card in) {
-        
-    // }
+    public void AddCard(Card card) {
+        Instantiate(controller.CardContainerPrefab, transform);
+        transform.GetChild(0).GetComponent<CardContainerController>().InstantiateCard(card);
+    }
 }

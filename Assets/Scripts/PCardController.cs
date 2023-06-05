@@ -27,7 +27,7 @@ public class PCardController : MonoBehaviour {
         return card;
     }
 
-    void Start() {
+    void Awake() {
         root = transform.Find("Root").gameObject;
         nameText = root.transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
         stageText = root.transform.Find("Stage").gameObject.GetComponent<TextMeshProUGUI>();
@@ -35,23 +35,31 @@ public class PCardController : MonoBehaviour {
         retreatText = root.transform.Find("Retreat").gameObject.GetComponent<TextMeshProUGUI>();
         weaknessImage = root.transform.Find("Weakness Color").gameObject.GetComponent<Image>();
         resistanceImage = root.transform.Find("Resistance Color").gameObject.GetComponent<Image>();
+    }
 
-        
-        
-        if (card != null) {
-            DrawCard();
-        }
+    void Start() {
+        DrawCard();
+    }
+
+    void OnEnable() {
+        DrawCard();
     }
 
     void DrawCard() {
-        Debug.Log(card == null);
-        nameText.text = Utility.Format(card.name);
-        stageText.text = Utility.Format(card.stage.ToString());
-        color.sprite = Resources.Load<Sprite>("Sprites/" + card.type.ToString().ToLower() + "_energy.png");
-        retreatText.text = "Retreat: " + card.retreatCost;
-        weaknessImage.sprite = Resources.Load<Sprite>("Sprites/" + card.weakness.ToString().ToLower() + "_energy.png");
-        resistanceImage.sprite = Resources.Load<Sprite>("Sprites/" + card.resistance.ToString().ToLower() + "_energy.png");
+        if (card != null) {
+            nameText.text = Utility.Format(card.name);
+            stageText.text = Utility.Format(card.stage.ToString());
+            color.sprite = Resources.Load<Sprite>("Sprites/" + card.type.ToString().ToLower() + "_energy.png");
+            retreatText.text = "Retreat: " + card.retreatCost;
+            weaknessImage.sprite = Resources.Load<Sprite>("Sprites/" + card.weakness.ToString().ToLower() + "_energy.png");
+            resistanceImage.sprite = Resources.Load<Sprite>("Sprites/" + card.resistance.ToString().ToLower() + "_energy.png");
+        }
 
+    }
+
+    public GameObject[] GetEnergyAttached() {
+        
+        return null;
     }
 
     

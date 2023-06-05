@@ -13,8 +13,13 @@ public class CardArrayController : MonoBehaviour {
     void Start() {
         controller = transform.root.GetComponent<CardGameController>();
         array = new GameObject[size];
-        Instantiate(controller.CardContainerPrefab, transform);
-        GameObject ocard = controller.PlayerBench.transform.GetChild(0).gameObject;
+
+        for (int i = size; i >= 0; i--) {
+            Instantiate(controller.CardContainerPrefab, transform);
+            array[i] = controller.PlayerBench.transform.GetChild(0).gameObject;
+        }
+
+        
     }
 
     // Update is called once per frame
@@ -22,14 +27,8 @@ public class CardArrayController : MonoBehaviour {
         
     }
 
-    public void AddChild(GameObject child, int index) {
-        array[index] = child;
-        
-        drawChildren();
-    }
-
-    public void RemoveChild(int index) {
-        
+    public GameObject GetChild(int index) {
+        return array[index];
     }
 
     private void drawChildren() {

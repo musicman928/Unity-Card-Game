@@ -12,7 +12,7 @@ public class BasicEnergy : Energy {
     }
 
     public override GameObject GetPrefab() {
-        return Resources.Load<GameObject>("Prefabs/BasicEnergy.prefab");
+        return Resources.Load<GameObject>("Prefabs/BasicEnergy");
     }
 
 }
