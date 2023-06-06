@@ -7,16 +7,16 @@ using TMPro;
 using System;
 
 public class PCardController : MonoBehaviour {
-    public PCard card;
-    public GameObject root;
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI stageText;
-    public Image color;
-    public TextMeshProUGUI retreatText;
-    public Image weaknessImage;
-    public Image resistanceImage;
+     public PCard card;
+     public GameObject root;
+     public TextMeshProUGUI nameText;
+     public TextMeshProUGUI stageText;
+     public Image color;
+     public TextMeshProUGUI retreatText;
+     public Image weaknessImage;
+     public Image resistanceImage;
 
-    [SerializeField] [Range(0,50)] float maximumMovementSpeed;
+    //[SerializeField] [Range(0,50)] float maximumMovementSpeed;
     
     public void SetCard(PCard card) {
         this.card = card;
@@ -28,13 +28,13 @@ public class PCardController : MonoBehaviour {
     }
 
     void Awake() {
-        root = transform.Find("Root").gameObject;
-        nameText = root.transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
-        stageText = root.transform.Find("Stage").gameObject.GetComponent<TextMeshProUGUI>();
-        color = root.transform.Find("Color").gameObject.GetComponent<Image>();
-        retreatText = root.transform.Find("Retreat").gameObject.GetComponent<TextMeshProUGUI>();
-        weaknessImage = root.transform.Find("Weakness Color").gameObject.GetComponent<Image>();
-        resistanceImage = root.transform.Find("Resistance Color").gameObject.GetComponent<Image>();
+        // root = transform.Find("Root").gameObject;
+        // nameText = root.transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
+        // stageText = root.transform.Find("Stage").gameObject.GetComponent<TextMeshProUGUI>();
+        // color = root.transform.Find("Color").gameObject.GetComponent<Image>();
+        // retreatText = root.transform.Find("Retreat").gameObject.GetComponent<TextMeshProUGUI>();
+        // weaknessImage = root.transform.Find("Weakness Color").gameObject.GetComponent<Image>();
+        // resistanceImage = root.transform.Find("Resistance Color").gameObject.GetComponent<Image>();
     }
 
     void Start() {

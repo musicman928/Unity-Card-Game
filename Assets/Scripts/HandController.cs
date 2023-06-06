@@ -32,5 +32,6 @@ public class HandController : MonoBehaviour {
     public void AddCard(Card card) {
         Instantiate(controller.CardContainerPrefab, transform);
         transform.GetChild(0).GetComponent<CardContainerController>().InstantiateCard(card);
+        transform.GetChild(0).GetComponent<CardContainerController>().Droppable = false;
     }
 }

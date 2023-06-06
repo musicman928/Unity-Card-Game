@@ -11,14 +11,15 @@ public class PCard : Card {
     
     public int maxhp;
     public int hp;
-    public List<Action> actions;
-    public CardColors type;
-    public PCardStages stage;
     public int retreatCost;
+    public List<Attack> attacks;
+    public List<Ability> abilities;
+    public PCardStages stage;
+    public CardColors type;
     public CardColors weakness;
     public CardColors resistance;
 
-    public PCard(string name, int hp, string set, int id, CardColors type, PCardStages stage, CardColors weakness, CardColors resistance, List<string> Tags, List<Action> actions) {
+    public PCard(string name, int hp, string set, int id, CardColors type, PCardStages stage, CardColors weakness, CardColors resistance, List<string> Tags) {
         Debug.Log("Constructing " + name + " " + set + " " + id);
         this.name = name;
         maxhp = hp;
@@ -39,15 +40,12 @@ public class PCard : Card {
         defaultTags.Add(Utility.FormatAllLower("res: " + this.resistance.ToString()));
         this.Tags.AddRange(defaultTags);
         this.Tags.AddRange(Tags);
-
-        this.actions = actions;
     }
-
     public override GameObject GetPrefab() {
         return Resources.Load<GameObject>("Prefabs/PCard.prefab");
     }
 
     public PCard Clone() {
-        return new PCard(name, hp, set, id, type, stage, weakness, resistance, Tags, actions);
+        return new PCard(name, hp, set, id, type, stage, weakness, resistance, Tags);
     }
 }

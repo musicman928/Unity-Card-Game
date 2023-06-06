@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 6913547317043087381}
   - component: {fileID: 6564644915549459976}
   - component: {fileID: 3055930811483508966}
+  - component: {fileID: 6979426272725434451}
   m_Layer: 0
   m_Name: BasicEnergy
   m_TagString: Untagged
@@ -427,3 +428,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 0}
+--- !u!114 &6979426272725434451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689978983117869348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdac8b35682b24745a9bd6a250ab5887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  root: {fileID: 2551128382391608928}
+  nameText: {fileID: 1133936428024334828}
+  color: {fileID: 5796937274787712352}

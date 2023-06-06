@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class Energy : Card {
 
-    public List<CardColors> value = new List<CardColors>();
+    public List<CardColors> EnergyValue = new List<CardColors>();
     
 }

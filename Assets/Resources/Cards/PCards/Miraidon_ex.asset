@@ -20,8 +20,11 @@ MonoBehaviour:
   - ex
   maxhp: 220
   hp: 220
-  type: 5
-  stage: 0
   retreatCost: 1
+  attacks:
+  - {fileID: 11400000, guid: add23997067ca3e41bbf847256ef01a2, type: 2}
+  abilities: []
+  stage: 0
+  type: 5
   weakness: 6
   resistance: 0

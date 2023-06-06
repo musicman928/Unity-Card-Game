@@ -1,5 +1,5 @@
 using System;
-public class Utility {
+public static class Utility {
     public static string CapitalizeFirst(string input) {
         char[] array = input.ToCharArray();
         array[0] = Char.ToUpper(array[0]);

@@ -7,7 +7,7 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
     
     public Card ContainedCard;
     [SerializeField] GameObject ContainedObject;
-    [SerializeField] GameObject pCardPrefab;
+    public bool Droppable;
 
     public void SetObject(GameObject contained) {
         ContainedObject = contained;
@@ -34,30 +34,12 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
         
     }
 
-
-    public void RemoveObject() {
-        ContainedObject = null;
-        transform.DetachChildren();
-    }
-
-    void OnTransformChildrenChanged() {
-        foreach(Transform child in transform) {
-            child.transform.localPosition = new Vector3(0,0,0);
-        }
-    }
-
-    public void Hidden(bool hidden) {
-
-    }
-
-    public GameObject GetObject() {
-        return ContainedObject;
-    }
-
     public void OnDrop(PointerEventData eventData) {
-        GameObject dropped = eventData.pointerDrag; 
-        Draggable dragged = dropped.GetComponent<Draggable>();
-        dragged.parentAfterDrag = transform;
+        if (Droppable) {
+            GameObject dropped = eventData.pointerDrag; 
+            Draggable dragged = dropped.GetComponent<Draggable>();
+            dragged.parentAfterDrag = transform;
+        }
         
     }
 

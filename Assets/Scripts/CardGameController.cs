@@ -8,6 +8,9 @@ public class CardGameController : MonoBehaviour {
     public GameObject CardContainerPrefab;
     public GameObject PlayerBench;
     public GameObject PlayerHand;
+    public delegate void GameUpdate();
+    public static GameUpdate OnUpdate;
+    
 
     Card[] PlayerBenchCards = new Card[5];
     List<Card> PlayerHandCards = new List<Card>();
@@ -47,6 +50,10 @@ public class CardGameController : MonoBehaviour {
         }
 
         return output.ToArray();
+    }
+
+    public void CallUpdate() {
+        OnUpdate();
     }
 
     

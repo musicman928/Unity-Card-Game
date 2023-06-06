@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3398888958531344076}
   - component: {fileID: 5647373722100806761}
   m_Layer: 0
-  m_Name: CardArray
+  m_Name: Bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 256108754417182281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e344ae4f768b1d49a39851cbef6fd1f, type: 3}
+  m_Script: {fileID: 11500000, guid: c95a756f44425f84dae0b3edbcfbb2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 5
   ChildScale: 0.656
-  cardContainer: {fileID: 4514997450423930188, guid: b8c331b9ab09c2742ba8eb735506e53f, type: 3}
+  cardContainer: {fileID: 0}
 --- !u!222 &7136360004455350474
 CanvasRenderer:
   m_ObjectHideFlags: 0

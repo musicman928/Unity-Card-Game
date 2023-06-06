@@ -25,11 +25,11 @@ public class DeckController : MonoBehaviour {
 
     void OnModified() {
         transform.GetComponentInChildren<TextMeshProUGUI>().text = GetLength().ToString();
-        OnModified();
     }
 
     public void DrawToHand() {
         controller.PlayerHand.GetComponent<HandController>().AddCard(deck.Draw());
+        OnModified();
     }
 
     public int GetLength() {

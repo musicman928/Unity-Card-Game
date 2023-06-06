@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BasicEnergy : Energy {
     
-    public BasicEnergy(CardColors type) {
-        value.Add(type);
-        name = "Basic " + Utility.FormatAllLower(type.ToString()) + " Energy";
+    public CardColors EnergyValue;
+    
+    public BasicEnergy(CardColors EnergyValue) {
+        this.EnergyValue = EnergyValue;
+        //EnergyValue.Add(EnergyValue);
+        name = "Basic " + Utility.Format(EnergyValue.ToString()) + " Energy";
         set = "NA";
         id = 0;
     }
@@ -14,5 +17,4 @@ public class BasicEnergy : Energy {
     public override GameObject GetPrefab() {
         return Resources.Load<GameObject>("Prefabs/BasicEnergy");
     }
-
 }

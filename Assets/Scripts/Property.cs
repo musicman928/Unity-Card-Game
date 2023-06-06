@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum PropertyTypes{Water, Fire, Grass};
 public static class Property {
     static Dictionary<string, List<GameObject>> dictionary = new Dictionary<string, List<GameObject>>();
 
