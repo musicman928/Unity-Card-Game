@@ -10,6 +10,8 @@ public class CardGameController : MonoBehaviour {
     public GameObject PlayerHand;
     public delegate void GameUpdate();
     public static GameUpdate OnUpdate;
+    public GameObject CoinFlipPrompt;
+    public AnnouncerWindowController announcer;
     
 
     Card[] PlayerBenchCards = new Card[5];
@@ -50,6 +52,16 @@ public class CardGameController : MonoBehaviour {
         }
 
         return output.ToArray();
+    }
+
+    public void StartGame(bool playerIsFirst) {
+        Debug.Log("Game started, first: " + playerIsFirst);
+
+        if (playerIsFirst) {
+            announcer.Announce("Your turn");
+        } else {
+            announcer.Announce("Enemy turn");
+        }
     }
 
     public void CallUpdate() {
