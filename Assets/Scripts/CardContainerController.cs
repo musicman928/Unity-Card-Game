@@ -8,6 +8,8 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
     public Card ContainedCard;
     [SerializeField] GameObject ContainedObject;
     public bool Droppable;
+    public string State;
+    public List<string> ValidProperties;
 
     public void SetObject(GameObject contained) {
         ContainedObject = contained;
@@ -36,8 +38,29 @@ public class CardContainerController : MonoBehaviour, IDropHandler {
 
     public void OnDrop(PointerEventData eventData) {
         if (Droppable) {
+
             GameObject dropped = eventData.pointerDrag; 
             Draggable dragged = dropped.GetComponent<Draggable>();
+
+            switch(State) {
+                case "empty_bench":
+                    bool valid = false;
+                    foreach(string property in ValidProperties) {
+                        if (Property.Contains(property, dropped)) {
+                            valid = true;
+                        }
+                    }
+
+                    
+                break;
+
+                case "empty_active":
+
+                break;
+            }
+
+
+            
             dragged.parentAfterDrag = transform;
         }
         

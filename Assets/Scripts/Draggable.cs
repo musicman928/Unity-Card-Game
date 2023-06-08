@@ -7,21 +7,15 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     [HideInInspector] public Transform parentAfterDrag;
-    static bool enable = true;
+    public static bool Enabled = false;
     public Image image;
 
-    public static void Disable() {
-        enable = false;
-    }
 
-    public static void Enable() {
-        enable = true;
-    }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
         image = GetComponent<Image>();
         Debug.Log("Begin Drag");
-        if (enable) {
+        if (Enabled) {
             parentAfterDrag = transform.parent;
             transform.SetParent(transform.root);
             transform.SetAsLastSibling();
@@ -32,7 +26,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData) {
-        if (enable) {
+        if (Enabled) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(transform.position.x, transform.position.y, -9);
         } else {
@@ -42,7 +36,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData) {
         Debug.Log("End Drag");
-        if (enable) {
+        if (Enabled) {
             //transform.position = new Vector3(transform.position.x, transform.position.y, 0);;
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;

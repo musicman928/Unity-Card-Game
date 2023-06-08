@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,10 @@ public static class Property {
         List<GameObject> value = new List<GameObject>();
         dictionary.TryGetValue(key, out value);
         return value.ToArray();
+    }
+
+    public static bool Contains(string key, GameObject gameObject) {
+        return Array.IndexOf(GetAll(key), gameObject) != -1;
     }
 
 }
